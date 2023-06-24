@@ -5,9 +5,10 @@ const Login = (props) => {
         email: '',
         password: ''
     })
+    const URL = 'https://singh-tour.onrender.com'
     const login = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch(`${URL}/login`, {
             method: "POST",
             mode: "cors",
             headers: {
