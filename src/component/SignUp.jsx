@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import Spinner from './Spinner';
 const SignUp = (props) => {
     const [Auth, setAuth] = useState({
         username: '',
         email: '',
         password: ''
     })
+    const [inputtype, setInputType] = useState('password');
     const URL = 'https://singh-tour.onrender.com'
-
+    const [spinner, setSpinner] = useState(false);
     const signin = async (e) => {
+        setSpinner(true)
         e.preventDefault();
         const response = await fetch(`${URL}/sign-up`, {
             method: "POST",
@@ -21,15 +24,17 @@ const SignUp = (props) => {
         const json = await response.json();
         localStorage.setItem('token', json.token)
         if (json.success) {
+            setSpinner(false)
             document.getElementById('popup').style.display = 'none';
             props.showAlert("Succesfull signed in", 'success')
         }
         else {
-            if (json.error == 'Email Exists') {
+            setSpinner(false)
+            if (json.error === 'Email Exists') {
                 props.showAlert('Email Already Exists', 'error');
             }
-            else {
-                props.showAlert("Some Error Occured", 'error')
+            else if(json.error === 'Wrong email'){
+                props.showAlert("Write Email Properly", 'error')
             }
         }
     }
@@ -70,9 +75,19 @@ const SignUp = (props) => {
                                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
                             </svg>
                         </div>
-                        <input type="password" name="password" id="password" minLength={8} maxLength={20} onChange={onChange} required />
+                        <input type={inputtype} name="password" id="password" minLength={8} maxLength={20} onChange={onChange} required />
                         <label htmlFor="password">Password</label>
                     </div>
+                    <div className="inputtype">
+                            <label htmlFor="checkbox"><input type="checkbox"  onClick={()=>{
+                                if(inputtype === 'password'){
+                                    setInputType('text')
+                                }
+                                else{
+                                    setInputType('password')
+                                }
+                            }} />Show Password</label>
+                       </div>
                     <div className="input1">
                         <div className="checkbox">
                             <label htmlFor="checkbox"><input type="checkbox" required /> I agree to the terms & conditions</label>
@@ -88,7 +103,7 @@ const SignUp = (props) => {
                             <p>Already have an account ? <a id="onloginregisterpop">Login</a></p>
                         </div>
                     </div>
-
+               { spinner&&<Spinner/>}
                 </form>
             </div>
         </section>

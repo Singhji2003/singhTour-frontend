@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Navbar = (props) => {
     let navigate = useNavigate();
     useEffect(() => {
@@ -59,7 +59,9 @@ const Navbar = (props) => {
                 </div>
                 <div className="right loginItem" id="rightrespo">
                     {!localStorage.getItem('token') ?
-                        <>  <button className="btn" id="login" onClick={()=>{
+                        <>  <button className="btn" id="login" onClick={() => {
+                            document.querySelector('#popup').classList.remove('activeregisterPopup')
+                            document.querySelector('#popup').classList.add('removeregisterPopup')
                             document.querySelector('#loginpopup').classList.remove('removeloginPopup')
                             document.querySelector('#loginpopup').classList.add('activeloginPopup')
                             document.getElementById('hide').style.display = 'none'
@@ -69,17 +71,19 @@ const Navbar = (props) => {
                             document.querySelector('nav').style.height = '6rem'
                             document.getElementById('logorespo').style.left = '-43vw'
                         }}>Login</button>
-                            <button className="btn" id="signup" onClick={()=>{
-                                            document.querySelector('#popup').classList.remove('removeregisterPopup')
-                                            document.querySelector('#popup').classList.add('activeregisterPopup')
-                                            document.getElementById('hide').style.display = 'none'
-                                            document.getElementById('show').style.display = 'block'
-                                            document.getElementById('navrespo').style.top = '-30rem'
-                                            document.getElementById('rightrespo').style.top = '-30rem'
-                                            document.querySelector('nav').style.height = '6rem'
-                                            document.getElementById('logorespo').style.left = '-43vw'
+                            <button className="btn" id="signup" onClick={() => {
+                                document.querySelector('#loginpopup').classList.remove('activeloginPopup')
+                                document.querySelector('#loginpopup').classList.add('removeloginPopup')
+                                document.querySelector('#popup').classList.remove('removeregisterPopup')
+                                document.querySelector('#popup').classList.add('activeregisterPopup')
+                                document.getElementById('hide').style.display = 'none'
+                                document.getElementById('show').style.display = 'block'
+                                document.getElementById('navrespo').style.top = '-30rem'
+                                document.getElementById('rightrespo').style.top = '-30rem'
+                                document.querySelector('nav').style.height = '6rem'
+                                document.getElementById('logorespo').style.left = '-43vw'
                             }}>Sign Up</button></> :
-                        <button className="btn" id="logout" onClick={()=>{
+                        <button className="btn" id="logout" onClick={() => {
                             localStorage.removeItem('token')
                             navigate('/')
                             props.showAlert("Succesfully Logged Out", 'success')

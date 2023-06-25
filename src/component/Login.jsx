@@ -1,13 +1,17 @@
 import { useState } from 'react';
-
+import Spinner from './Spinner';
+import ForgetPassword from './ForgetPassword';
 const Login = (props) => {
     const [Auth, setAuth] = useState({
         email: '',
         password: ''
     })
+    const [spinner, setSpinner] = useState(false);
+    const [inputtype, setInputType] = useState('password');
     const URL = 'https://singh-tour.onrender.com'
     const login = async (e) => {
         e.preventDefault();
+        setSpinner(true)
         const response = await fetch(`${URL}/login`, {
             method: "POST",
             mode: "cors",
@@ -16,14 +20,16 @@ const Login = (props) => {
             },
             body: JSON.stringify({ email: Auth.email, password: Auth.password }),
         });
-        const json =  await response.json();
-        if(json.success){
+        const json = await response.json();
+        if (json.success) {
+            setSpinner(false)
             localStorage.setItem('token', json.token)
             document.querySelector('#loginpopup').classList.add('removeloginPopup')
             document.querySelector('#loginpopup').classList.remove('activeloginPopup')
             props.showAlert("Succesfull signed in", 'success')
         }
-        else{
+        else {
+            setSpinner(false)
             props.showAlert("Login With correct Details", 'error')
         }
     }
@@ -56,13 +62,31 @@ const Login = (props) => {
                                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
                             </svg>
                         </div>
-                        <input type="password" name="password" onChange={onChange} id="password" required />
+                        <input type={inputtype} name="password" onChange={onChange} value={Auth.password} id="password" required />
                         <label htmlFor="password">Password</label>
                     </div>
                     <div className="input1">
-                        <div className="checkbox">
-                            <label htmlFor="checkbox"><input type="checkbox" /> Remember me </label>
-                            <a href="/">Forgot Password</a>
+                        <div className="checkbox" >
+                            <label htmlFor="checkbox" id='showpswd'><input type="checkbox"  onClick={()=>{
+                                if(inputtype === 'password'){
+                                    setInputType('text')
+                                }
+                                else{
+                                    setInputType('password')
+                                }
+                            }}/> Show Password </label>
+                            <a onClick={()=>{
+                                 document.querySelector('#loginpopup').classList.remove('activeloginPopup')
+                                 document.querySelector('#loginpopup').classList.add('removeloginPopup')
+                                 document.querySelector('#forgetpopup').classList.remove('removeforgetpopup')
+                                 document.querySelector('#forgetpopup').classList.add('activeforgetpopup')
+                                 document.getElementById('hide').style.display = 'none'
+                                 document.getElementById('show').style.display = 'block'
+                                 document.getElementById('navrespo').style.top = '-30rem'
+                                 document.getElementById('rightrespo').style.top = '-30rem'
+                                 document.querySelector('nav').style.height = '6rem'
+                                 document.getElementById('logorespo').style.left = '-43vw'
+                            }}>Forgot Password</a>
                         </div>
                     </div>
                     <div className="input1">
@@ -75,10 +99,12 @@ const Login = (props) => {
                             <p>Not have any account ?<a id="onregisterloginpop" >Register</a></p>
                         </div>
                     </div>
-
+                       {spinner&& <Spinner/>}
                 </form>
             </div>
+            <ForgetPassword/>
         </section>
+        
     )
 }
 export default Login;

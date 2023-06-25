@@ -248,15 +248,30 @@ transition: .5s;
         width: 16rem;
     }
     .signup, .login{
-        width: 23rem;
+        width: 25rem;
     }
     .login h1, .signup h1 {
         font-size: 2em;
         color: #ff6612;
-        margin-left: 39%;
         margin-top: 1.6rem;
         position: absolute;
     }
+    .checkbox{
+        margin-left: 3rem;
+    }
+}
+@media screen and (max-width:440px) {
+    .signup, .login {
+        width: 20rem;
+    }
+    .input {
+        width: 14rem;
+        margin: 2rem 3rem;
+    }
+    .signup h1 {
+        margin-left: 2rem;
+    }
+
 }
 @media screen and (max-width: 414px) {
     .lposts img {
