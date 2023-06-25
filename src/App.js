@@ -1,4 +1,5 @@
 import './App.css'
+import './Responsive.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './component/HomePage';
 const App = ()=>{

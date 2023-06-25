@@ -52,7 +52,7 @@ const SignUp = (props) => {
                         <div className="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                         </svg></div>
-                        <input type="text" name="username" id="username" min={3} max={10} onChange={onChange} required />
+                        <input type="text" name="username" id="username" minLength={3} maxLength={10} onChange={onChange} required />
                         <label htmlFor="name">Username</label>
                     </div>
                     <div className="input">
@@ -70,7 +70,7 @@ const SignUp = (props) => {
                                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
                             </svg>
                         </div>
-                        <input type="password" name="password" id="password" min={8} max={20} onChange={onChange} required />
+                        <input type="password" name="password" id="password" minLength={8} maxLength={20} onChange={onChange} required />
                         <label htmlFor="password">Password</label>
                     </div>
                     <div className="input1">
@@ -85,7 +85,7 @@ const SignUp = (props) => {
                     </div>
                     <div className="input1">
                         <div className="registeralready">
-                            <p>Already have an account ? <a id="onloginregisterpop" href="/">Login</a></p>
+                            <p>Already have an account ? <a id="onloginregisterpop">Login</a></p>
                         </div>
                     </div>
 

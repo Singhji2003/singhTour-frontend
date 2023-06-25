@@ -14,7 +14,6 @@ const Login = (props) => {
             headers: {
                 "Content-Type": "application/json",
             },
-
             body: JSON.stringify({ email: Auth.email, password: Auth.password }),
         });
         const json =  await response.json();
@@ -73,7 +72,7 @@ const Login = (props) => {
                     </div>
                     <div className="input1">
                         <div className="registeralready">
-                            <p>Not have any account ?<a id="onregisterloginpop" href="/">Register</a></p>
+                            <p>Not have any account ?<a id="onregisterloginpop" >Register</a></p>
                         </div>
                     </div>
 

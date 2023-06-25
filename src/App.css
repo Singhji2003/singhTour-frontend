@@ -780,3 +780,8 @@ transition: 0.4s;
 .alertbox p{
   margin-left: 0.6rem;
 }
+#onregisterloginpop, #onloginregisterpop{
+color: #0645AD;
+text-decoration: underline;
+cursor: pointer;
+}
