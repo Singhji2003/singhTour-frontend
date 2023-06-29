@@ -1,28 +1,34 @@
+import { useEffect } from 'react';
+
 const HomeContainer = () => {
-    let slideIndex = 0;
-    function showSlides() {
-        let i;
-        // let slides = document.querySelectorAll(".mySlides");
-        let slides = document.querySelectorAll(".mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+    useEffect(()=>{
+        let slideIndex = 0;
+        function showSlides() {
+            let i;
+            let slides = document.querySelectorAll(".mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
         }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000);
-    }
-    function showRightSlides() {
-        let i;
-        let slides1 = document.querySelectorAll(".rightmySlides");
-        for (i = 0; i < slides1.length; i++) {
-            slides1[i].style.display = "none";
+        function showRightSlides() {
+            let i;
+            let slides1 = document.querySelectorAll(".rightmySlides");
+            for (i = 0; i < slides1.length; i++) {
+                slides1[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides1.length) { slideIndex = 1 }
+            slides1[slideIndex - 1].style.display = "block";
+            setTimeout(showRightSlides, 3500);
         }
-        slideIndex++;
-        if (slideIndex > slides1.length) { slideIndex = 1 }
-        slides1[slideIndex - 1].style.display = "block";
-        setTimeout(showRightSlides, 3500);
-    }
+        showSlides();
+        showRightSlides();
+    },[ ])
+    
     return (
         <>
                 <div className="homeContainer">
@@ -70,8 +76,7 @@ const HomeContainer = () => {
 
                             <div className="rightmySlides fade"  onLoad={() => {
                    
-                   showSlides();
-                   showRightSlides();
+                  
                }}>
                                 <img src={require('./Images/banner-img01.webp')} width="100%" alt='banner' />
                             </div>

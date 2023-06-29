@@ -630,12 +630,14 @@ footer {
 }
 
 .input input {
-  border: none;
-  width: 100%;
-  height: 100%;
-  font-size: 1.1em;
-  outline: none;
-  background: transparent;
+    background: transparent;
+    border: none;
+    font-size: 1.1em;
+    height: 100%;
+    outline: none;
+    width: 86%;
+    position: absolute;
+    left: 0;
 }
 
 .signup h1 {
@@ -678,6 +680,14 @@ form {
 }
 
 .activeregisterPopup {
+  transform: scale(1);
+}
+.removeforgetPopup {
+  transform: scale(0);
+
+}
+
+.activeforgetPopup {
   transform: scale(1);
 }
 
@@ -839,12 +849,139 @@ cursor: pointer;
 .icon{
   display: flex;
 }
-#sendotp{
-  background-color: #ff6612;
+.destinations h1 {
+    text-align: center;
+    font-size: 2.8em;
+    color: #ff6612;
+    font-family: system-ui;
+}
+.destination-item{
+    text-align: center;
+    margin:2rem  3rem;
+    border: 2px solid #ff6612;
+    padding: 1.2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.destination-item img:hover{
+    transform: scale(1.1);
+  }
+  .destination-item button:hover{
+    box-shadow: 0 0 10px 0 #f36d25 inset, 0 0 20px 2px #f37c3b;
+    /* border: 2px solid #f36d25; */
+    transition: .3s;
+  }
+  hr{
+    width: 100%;
+  }
+  .destination{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+  }
+  .destination img{
+    width: 20rem;
+    cursor: pointer;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+  .destination-item button{
+    padding: 0.6rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f36d25;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1em;
+}
+.destination-item h1{
+  font-size: 1.4em;
+  margin: 0.6rem 0rem;
+}
+
+.destination a{
+  text-decoration: none;
   color: white;
-  padding: 0.5rem;
-  border: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Inconsolata&family=Lora:ital@1&family=Oswald&display=swap');
+
+.mainPara h1{
+    font-family:'Lora', serif ;
+    text-align: center;
+    font-size: 3em;
+    color: #ff6612;
+
+}
+.mainPara img{
+    width: 40vw;
+    margin: 4rem 3rem;
+
+}
+.content{
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.mainPara{
+    display: grid;
+    margin: 0rem 2rem;
+    grid-template-columns: 50% 50%;
+}
+.mainPara .content p{
+    margin-right: 2rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+    font-family:'Lora', serif ;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+}
+.hisotrypara h1,  .detailspara h1{
+    font-size: 3rem;
+    font-family:'Lora', serif ;
+    margin: 2rem;
+    color: #ff6612;
+    text-align: center;
+}
+.hisotrypara p{
+    width: 70vw;
+    text-align-last: center;
+    margin: auto;
+    font-family:'Lora', serif ;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+}
+.maindetails table{
+  width: 60vw;
+}
+.maindetails table, td, tr{
+    border: 2px solid #ff6612;
+    border-collapse: collapse;
+    padding: 0.7rem 1rem;
+    font-family:'Lora', serif ;
+    font-size: 1.1em;
+    margin: 3rem auto;
+}
+.forgetpswdclass{
+transform: scale(0);
+}
+#forgetpswdlink {
+  position: absolute;
+  right: 4rem;
+  top: 15rem;
+  color: #0645AD;
   cursor: pointer;
-  border-radius: 7px;
-  margin-top: -8px;
+  text-decoration: underline;
+}
+.checkbox {
+  margin-left: -12rem;;
+}
+#forgetpswd h1{
+  margin-left: 8rem;
+}
+.signup form .input1 .checkbox{
+  margin-left: -2rem;
 }

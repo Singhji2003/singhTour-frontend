@@ -6,6 +6,7 @@ import HomeContainer from './HomeContainer';
 import Latest from './Latest';
 import Navbar from './Navbar';
 import PopularPlace from './PopularPlace';
+import WhyChooseUs from './WhyChooseUs';
 
 const HomePage = () => {
     const [alert, setAlert] = useState(null)
@@ -26,6 +27,7 @@ const HomePage = () => {
             <PopularPlace />
             <About />
             <Latest />
+            <WhyChooseUs/>
             <Footer />
         </>
     )

@@ -273,6 +273,14 @@ transition: .5s;
     }
 
 }
+@media screen and (max-width: 1100px) {
+    .destination-item {
+        margin: 2rem 1rem;
+    }
+.maindetails table, td, tr {
+    width: 80vw;
+}
+}
 @media screen and (max-width: 414px) {
     .lposts img {
         width: 16rem;
@@ -307,5 +315,122 @@ transition: .5s;
     }
     .content-home h1 {
         width: 18rem;
+    }
+}
+
+@media screen and (max-width:1326px) {
+    .destination-item {
+        margin: 2rem 34px;
+    }
+}
+@media screen and (max-width:1320px) {
+    .destination-item {
+        margin: 2rem 34px;
+    }
+}
+@media screen and (max-width:1260px) {
+    .destination-item {
+        margin: 2rem 30px;
+    }
+}
+@media screen and (max-width:1230) {
+    .destination-item {
+        margin: 2rem 14px;
+    }
+}
+@media screen and (max-width:1210px) {
+    .destination {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        justify-content: center;
+    }
+.destination img {
+    width: 20vw;
+}
+} 
+@media screen and (max-width: 733px) {
+    .destination {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+    }
+    .eachPlace{
+        margin-top: 6rem;
+    }
+    .destinationheading {
+        margin-top: 7rem;
+    }
+    .destination img {
+        width: 96%;
+    }
+}
+@media screen and (max-width:540px) {
+    .destinationheading h1 {
+        font-size: 2.3em;
+    }
+    .maindetails table, td, tr {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .destination {
+        display: block;
+    }
+    .destinationheading h1 {
+        font-size: 2em;
+    }
+    .login h1 {
+        margin-left: 7rem;
+    }
+    #forgetpswdlink {
+        position: absolute;
+        right: 4rem;
+        margin-right: 33px;
+        top: 16rem;
+
+    }
+    .input1 {
+        justify-content: center;
+        display: flex;
+    }
+    .checkbox {
+        margin-left: 2rem;
+    }
+}
+@media screen and (max-width:380px) {
+    .destinationheading h1 {
+        font-size: 26px;
+    }
+
+}
+@media screen and (max-width:800px) {
+    .mainPara img {
+        width: 40vw;
+        margin: 4rem 1rem;
+    }
+}
+@media screen and (max-width:600px) {
+    .mainPara {
+        display: block;
+        text-align: center;
+    }
+    .mainPara img {
+        width: 66vw;
+        margin: 1rem 1rem;
+    }
+}
+@media screen and (max-width:500px) {
+    .checkbox {
+        margin-left: -8rem;
+    }
+}
+@media screen and (max-width: 372px) {
+    .signup, .login {
+        width: 19rem;
+    }
+    .btnsubmit button {
+        width: 17rem;
+        margin-top: 2rem;
     }
 }

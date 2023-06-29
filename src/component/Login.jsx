@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Spinner from './Spinner';
-import ForgetPassword from './ForgetPassword';
 const Login = (props) => {
     const [Auth, setAuth] = useState({
         email: '',
@@ -75,19 +74,21 @@ const Login = (props) => {
                                     setInputType('password')
                                 }
                             }}/> Show Password </label>
-                            <a onClick={()=>{
-                                 document.querySelector('#loginpopup').classList.remove('activeloginPopup')
-                                 document.querySelector('#loginpopup').classList.add('removeloginPopup')
-                                 document.querySelector('#forgetpopup').classList.remove('removeforgetpopup')
-                                 document.querySelector('#forgetpopup').classList.add('activeforgetpopup')
-                                 document.getElementById('hide').style.display = 'none'
-                                 document.getElementById('show').style.display = 'block'
-                                 document.getElementById('navrespo').style.top = '-30rem'
-                                 document.getElementById('rightrespo').style.top = '-30rem'
-                                 document.querySelector('nav').style.height = '6rem'
-                                 document.getElementById('logorespo').style.left = '-43vw'
-                            }}>Forgot Password</a>
                         </div>
+                            <a id='forgetpswdlink' onClick={()=>{
+                                document.querySelector('#loginpopup').classList.remove('activeloginPopup')
+                                document.querySelector('#loginpopup').classList.add('removeloginPopup')
+                                document.querySelector('#popup').classList.remove('activeregisterPopup')
+                                document.querySelector('#popup').classList.add('removeregisterPopup')
+                                document.querySelector('#forgetpswd').classList.remove('removeforgetPopup')
+                                document.querySelector('#forgetpswd').classList.add('activeforgetPopup')
+                                document.getElementById('hide').style.display = 'none'
+                                document.getElementById('show').style.display = 'block'
+                                document.getElementById('navrespo').style.top = '-30rem'
+                                document.getElementById('rightrespo').style.top = '-30rem'
+                                document.querySelector('nav').style.height = '6rem'
+                                document.getElementById('logorespo').style.left = '-43vw'
+                            }}>Forget Password?</a>
                     </div>
                     <div className="input1">
                         <div className="btnsubmit">
@@ -102,7 +103,6 @@ const Login = (props) => {
                        {spinner&& <Spinner/>}
                 </form>
             </div>
-            <ForgetPassword/>
         </section>
         
     )

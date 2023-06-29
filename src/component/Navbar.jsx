@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import ForgetPassword from "./ForgetPassword";
 const Navbar = (props) => {
     let navigate = useNavigate();
     useEffect(() => {
@@ -12,6 +13,10 @@ const Navbar = (props) => {
         document.querySelector('.loginclose').addEventListener('click', () => {
             document.querySelector('#loginpopup').classList.add('removeloginPopup')
             document.querySelector('#loginpopup').classList.remove('activeloginPopup')
+        })
+        document.querySelector('.forgetclose').addEventListener('click', () => {
+            document.querySelector('#forgetpswd').classList.add('removeforgetPopup')
+            document.querySelector('#forgetpswd').classList.remove('activeforgetPopup')
         })
 
         document.getElementById('onregisterloginpop').addEventListener('click', () => {
@@ -51,19 +56,21 @@ const Navbar = (props) => {
                 </div>
                 <div className="center navItem" id="navrespo">
                     <ul>
-                        <li><a href="/"> Destination</a></li>
-                        <li><a href="/"> Holiday Ideas</a></li>
+                        <li><Link to="/"> Home</Link></li>
+                        <li><Link to="/place"> Destination</Link></li>
                         <li><a href="/"> Packages</a></li>
                         <li><a href="/"> Place to Stay</a></li>
                     </ul>
                 </div>
                 <div className="right loginItem" id="rightrespo">
-                    {!localStorage.getItem('token') ?
+                {!localStorage.getItem('token') ?
                         <>  <button className="btn" id="login" onClick={() => {
                             document.querySelector('#popup').classList.remove('activeregisterPopup')
                             document.querySelector('#popup').classList.add('removeregisterPopup')
                             document.querySelector('#loginpopup').classList.remove('removeloginPopup')
                             document.querySelector('#loginpopup').classList.add('activeloginPopup')
+                            document.querySelector('#forgetpswd').classList.add('removeforgetPopup')
+                            document.querySelector('#forgetpswd').classList.remove('activeforgetPopup')
                             document.getElementById('hide').style.display = 'none'
                             document.getElementById('show').style.display = 'block'
                             document.getElementById('navrespo').style.top = '-30rem'
@@ -76,6 +83,8 @@ const Navbar = (props) => {
                                 document.querySelector('#loginpopup').classList.add('removeloginPopup')
                                 document.querySelector('#popup').classList.remove('removeregisterPopup')
                                 document.querySelector('#popup').classList.add('activeregisterPopup')
+                                document.querySelector('#forgetpswd').classList.add('removeforgetPopup')
+                                document.querySelector('#forgetpswd').classList.remove('activeforgetPopup')
                                 document.getElementById('hide').style.display = 'none'
                                 document.getElementById('show').style.display = 'block'
                                 document.getElementById('navrespo').style.top = '-30rem'
@@ -110,6 +119,7 @@ const Navbar = (props) => {
             <hr />
             <SignUp showAlert={props.showAlert} />
             <Login showAlert={props.showAlert} />
+            <ForgetPassword showAlert={props.showAlert} />
         </>
     )
 }
