@@ -1,4 +1,5 @@
 import AOS from 'aos';
+import { Link } from 'react-router-dom';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init({
@@ -31,7 +32,7 @@ const Latest = ()=>{
                             state, but, with the creation of Telangana from Andhra Pradesh in 2014, it was redesignated
                             as the capital of both states.</p>
                         <div className="explore buttondetails">
-                            <button>Explore More</button>
+                            <Link to='/place'> <button>Explore More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ const Latest = ()=>{
                             Delhi, India. It was built by Shah Jahān in the mid-17th century and remains a major tourist
                             attraction. The fort was designated a UNESCO World Heritage site in 2007.</p>
                         <div className="explore buttondetails">
-                            <button>Explore More</button>
+                            <Link to='/place'> <button>Explore More</button></Link>
                         </div>
                     </div>
                     <img src={require("./Images/lal kila.webp")} alt="banner"/>
@@ -54,7 +55,7 @@ const Latest = ()=>{
                             and 5th most populous urban agglomeration in India. It is located in Southern India on the
                             Deccan Pleteau.</p>
                         <div className="explore buttondetails">
-                            <button>Explore More</button>
+                            <Link to='/place'> <button>Explore More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ const Latest = ()=>{
                             Madraspatnam, where the British East India Company built a fort and factory (trading post)
                             in 1639–40. Tamil Nadu officially changed the name of the city to Chennai in 1996</p>
                         <div className="explore buttondetails">
-                            <button>Explore More</button>
+                            <Link to='/place'> <button>Explore More</button></Link>
                         </div>
                     </div>
                     <img src={require("./Images/cahnnai.webp")} alt="banner"/>

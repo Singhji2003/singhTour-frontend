@@ -58,8 +58,8 @@ const Navbar = (props) => {
                     <ul>
                         <li><Link to="/"> Home</Link></li>
                         <li><Link to="/place"> Destination</Link></li>
-                        <li><a href="/"> Packages</a></li>
-                        <li><a href="/"> Place to Stay</a></li>
+                        <li><a href="#about"> About Us</a></li>
+                        <li><Link to="/contact"> Contact Us</Link></li>
                     </ul>
                 </div>
                 <div className="right loginItem" id="rightrespo">

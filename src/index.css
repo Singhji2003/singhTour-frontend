@@ -1,0 +1,92 @@
+.contactUs{
+background: url('./component/Images/contactbg.jpg') center center/cover no-repeat;
+height: 85vh;
+padding: 1rem;
+margin-top: -1rem;
+}
+.contactForm{
+    width: max-content;
+    border: 2px solid rgb(34, 32, 32);
+    box-shadow: 5px 5px  rgba(44, 43, 43, 0.705);
+    padding: 1rem 6rem;
+    border-radius: 2rem;
+   margin: 0rem 6rem;
+   line-height: 2.4rem;
+}
+.contactForm h1{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.2rem;
+    font-family: system-ui;
+}
+.contactForm label{
+    font-size: 1.2em;
+}
+.contactForm form {
+    margin-top: 0rem;
+}
+.contactForm button{
+   padding: 0.3rem;
+   display: flex;
+   margin: auto;
+   margin-top: 1rem;
+}
+.contactForm input{
+    width: 20rem;
+    height: 1.5rem;
+    font-size: 1.2rem;
+}
+.contactForm textarea{
+    font-size: 1.2rem;
+}
+.contactinput{
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width:866px) {
+    .contactForm {
+        padding: 1rem 2rem;
+    }
+}  
+@media screen and (max-width:733px) {
+    .contactUs {
+        margin-top: 5.4rem;
+    }
+}  
+@media screen and (max-width:680px) {
+    .contactForm {
+        margin: 0rem 2rem;
+    }
+    
+}
+@media screen and (max-width:600px) {
+    .contactForm h1 {
+        font-size: 1.6em;
+    }
+    .contactForm{
+        line-height: 1.8rem;
+    }
+    
+}
+@media screen and (max-width:447px) {
+    .contactForm {
+        margin: 0rem 0rem;
+    }
+}
+@media screen and (max-width:405px) {
+    .contactForm input {
+        width: 15rem;
+        height: 1.5rem;
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:367px) {
+    .contactForm {
+        padding: 1rem 1rem;
+    }
+}
+@media screen and (max-width:337px) {
+    .contactForm {
+        padding: 1rem 1rem;
+    }
+}

@@ -8,7 +8,7 @@ AOS.init({
 const About = ()=>{
     return(
         <>
-        <div className="aboutme" onLoad={()=>{
+        <div id='about' className="aboutme" onLoad={()=>{
             function animationAbout(){
                 document.addEventListener('scroll', ()=>{
                   if(window.scrollY>750){
